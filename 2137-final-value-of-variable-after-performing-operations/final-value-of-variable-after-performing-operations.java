@@ -3,8 +3,8 @@ class Solution {
         int ans=0;
         for(int i=0;i<operations.length;i++){
             String s = operations[i];
-            if(s.equals("--X") || s.equals("X--")) ans--;
-            if(s.equals("++X") || s.equals("X++")) ans++;
+            if(s.charAt(1)=='-') ans--;
+            if(s.charAt(1)=='+') ans++;
         }
         return ans;
     }
