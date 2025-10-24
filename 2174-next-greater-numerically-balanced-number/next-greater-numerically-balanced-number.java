@@ -1,7 +1,7 @@
 class Solution {
     public int nextBeautifulNumber(int n) {
         boolean isfound=false;
-        for(int i=n+1;i<999999999;i++){
+        for(int i=n+1;i<=1224444;i++){
             if(isnum(i)){
                 return i;
             }
