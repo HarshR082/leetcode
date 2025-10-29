@@ -1,14 +1,8 @@
 class Solution {
-    public int smallestNumber(int n) {
-        while(true){
-            String s = Integer.toBinaryString(n);
-            if(s.contains("0")) n++;
-            else{
-                //return n;
-                break;
-
-            }
+    public int smallestNumber(int x) {
+        while((x&(x+1))!=0){
+            x++;
         }
-        return n;
+        return x;
     }
 }
