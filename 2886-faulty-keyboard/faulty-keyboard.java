@@ -1,18 +1,14 @@
 class Solution {
     public String finalString(String s) {
-        String ds ="";
+        StringBuilder sb = new StringBuilder();
         for(int i=0;i<s.length();i++){
             char c = s.charAt(i);
-            if(c!='i') ds+=c;
-            if(c =='i'){
-                ds=rev(ds);
-                continue;
+            if(c!='i') sb.append(c);
+            else{
+                sb.reverse();
             }
         }
-        return ds;
+        return sb.toString() ;
     }
-    private String rev(String ss){
-        StringBuilder sb = new StringBuilder(ss);
-        return sb.reverse().toString();
-    }
+    
 }
