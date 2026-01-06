@@ -16,9 +16,9 @@
 class Solution {
     public int maxLevelSum(TreeNode root) {
         ArrayList<Integer> list = new ArrayList<>();
-        int maxfind=Integer.MIN_VALUE;
-        int ans=0;
-        int count=0;
+        int maxx = Integer.MIN_VALUE;
+        int ans =0;
+        int count =0;
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         q.add(null);
@@ -35,15 +35,20 @@ class Solution {
                 count+=curr.val;
                 if(curr.left!=null) q.add(curr.left);
                 if(curr.right!=null) q.add(curr.right);
+
             }
+            
+            
         }
         for(int i=0;i<list.size();i++){
-            if(list.get(i)>maxfind) {
-                ans=i+1;
-                maxfind=list.get(i);
-            }
+                if(list.get(i)>maxx){
+                    ans=i+1;
+                    maxx=list.get(i);
+                    
+                }
+                            
         }
         return ans;
-
+        
     }
 }
