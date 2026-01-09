@@ -1,0 +1,23 @@
+class Solution {
+    TreeNode tn;
+    int max ;
+    public TreeNode subtreeWithAllDeepest(TreeNode root) {
+        dfs(root,0);
+        return tn;
+    }
+
+    private int dfs(TreeNode tn,int level){
+        if(tn==null){
+            max = Math.max(level,max);
+            return level;
+        }
+
+        int right = dfs(tn.right,level+1);
+        int left = dfs(tn.left,level+1);
+
+        if(right==left && left==max){
+            this.tn=tn;
+        }
+        return Math.max(left,right);
+    }
+}
