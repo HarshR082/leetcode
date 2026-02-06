@@ -1,28 +1,18 @@
-import java.util.Arrays;
-
 class Solution {
     public int minRemoval(int[] nums, int k) {
-        int n = nums.length;
-        int ans = 0;
-
         Arrays.sort(nums);
+        int n = nums.length;
 
-        int i = 0;
-        int j = 0;
+        int left = 0;
+        int maxWindow = 0;
 
-        while (j < n) {
-
-            // If condition breaks move i
-            while (i <= j && (long) nums[j] > (long) k * nums[i]) {
-                i++;
+        for (int right = 0; right < n; right++) {
+            while (nums[right] > (long) nums[left] * k) {
+                left++;
             }
-
-            // Track max window size
-            ans = Math.max(ans, j - i + 1);
-
-            j++;
+            maxWindow = Math.max(maxWindow, right - left + 1);
         }
 
-        return n - ans;
+        return n - maxWindow;
     }
 }
