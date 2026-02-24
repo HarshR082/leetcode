@@ -15,22 +15,12 @@
  */
 class Solution {
     public int sumRootToLeaf(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        store(root,0,list);
-        int sum=0;
-        for(int i : list){
-            sum+=i;
-        }
-        return sum;
+        return dfs(root,0);
     }
-    private void store(TreeNode root,int currval,List<Integer> list){
-        if(root==null) return ;
-        currval=currval*2+root.val;
-        if(root.left==null && root.right==null){
-            list.add(currval);
-            return;
-        }
-        store(root.left,currval,list);
-        store(root.right,currval,list);
+    private int dfs(TreeNode root,int curr){
+        if(root==null) return 0;
+        curr=curr*2+root.val;
+        if(root.left==null && root.right==null) return curr;
+        return dfs(root.left,curr)+dfs(root.right,curr);
     }
 }
