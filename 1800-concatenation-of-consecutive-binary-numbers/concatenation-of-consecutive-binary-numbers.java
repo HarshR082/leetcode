@@ -1,14 +1,11 @@
 class Solution {
     public int concatenatedBinary(int n) {
-        StringBuilder sb = new StringBuilder();
+        int k = 0;
+        long res = 0;
         for(int i=1;i<=n;i++){
-            sb.append(Integer.toBinaryString(i));
+            if((i&(i-1))==0) k++;
+            res = ((res<<k)+i)%1000000007;
         }
-        String s = sb.toString();
-        int ans=0;
-        for(int i=0;i<s.length();i++){
-            ans = (ans*2+(s.charAt(i)-'0'))%1000000007;
-        }
-        return ans;
+        return (int) res;
     }
 }
